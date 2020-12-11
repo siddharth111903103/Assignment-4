@@ -1,0 +1,84 @@
+1. factorial code in c made.
+2. compiled it using gcc -g filename.c, a.out file generated.
+3. used gdb a.out in terminal.
+
+4. then wrote 
+1)b main, gives breakpoint at line, 
+2)run, shows breakpoint and stops, 
+3)disass, gives dump of assembler code for function main.
+
+Terminal:
+
+dell@geet:~/Desktop/PPL/ass3$ gcc -g fact.c
+dell@geet:~/Desktop/PPL/ass3$ ls
+fact.c  fact.c~
+dell@geet:~/Desktop/PPL/ass3$ gcc -g fact.c
+dell@geet:~/Desktop/PPL/ass3$ gdb a.out
+GNU gdb (Ubuntu 7.10-1ubuntu2) 7.10
+Copyright (C) 2015 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i686-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x80484cc: file fact.c, line 5.
+(gdb) run
+Starting program: /home/dell/Desktop/PPL/ass3/a.out 
+
+Breakpoint 1, main () at fact.c:5
+5	int main(){
+(gdb) disass
+Dump of assembler code for function main:
+   0x080484bb <+0>:	lea    0x4(%esp),%ecx
+   0x080484bf <+4>:	and    $0xfffffff0,%esp
+   0x080484c2 <+7>:	pushl  -0x4(%ecx)
+   0x080484c5 <+10>:	push   %ebp
+   0x080484c6 <+11>:	mov    %esp,%ebp
+   0x080484c8 <+13>:	push   %ecx
+   0x080484c9 <+14>:	sub    $0x14,%esp
+=> 0x080484cc <+17>:	mov    %gs:0x14,%eax
+   0x080484d2 <+23>:	mov    %eax,-0xc(%ebp)
+   0x080484d5 <+26>:	xor    %eax,%eax
+   0x080484d7 <+28>:	sub    $0xc,%esp
+   0x080484da <+31>:	push   $0x80485f0
+   0x080484df <+36>:	call   0x8048370 <printf@plt>
+   0x080484e4 <+41>:	add    $0x10,%esp
+   0x080484e7 <+44>:	sub    $0x8,%esp
+   0x080484ea <+47>:	lea    -0x14(%ebp),%eax
+   0x080484ed <+50>:	push   %eax
+   0x080484ee <+51>:	push   $0x80485ff
+   0x080484f3 <+56>:	call   0x80483b0 <__isoc99_scanf@plt>
+   0x080484f8 <+61>:	add    $0x10,%esp
+   0x080484fb <+64>:	mov    -0x14(%ebp),%eax
+   0x080484fe <+67>:	sub    $0xc,%esp
+---Type <return> to continue, or q <return> to quit---
+   0x08048501 <+70>:	push   %eax
+   0x08048502 <+71>:	call   0x8048542 <factorial>
+   0x08048507 <+76>:	add    $0x10,%esp
+   0x0804850a <+79>:	mov    %eax,-0x10(%ebp)
+   0x0804850d <+82>:	mov    -0x14(%ebp),%eax
+   0x08048510 <+85>:	sub    $0x4,%esp
+   0x08048513 <+88>:	pushl  -0x10(%ebp)
+   0x08048516 <+91>:	push   %eax
+   0x08048517 <+92>:	push   $0x8048602
+   0x0804851c <+97>:	call   0x8048370 <printf@plt>
+   0x08048521 <+102>:	add    $0x10,%esp
+   0x08048524 <+105>:	mov    $0x0,%eax
+   0x08048529 <+110>:	mov    -0xc(%ebp),%edx
+   0x0804852c <+113>:	xor    %gs:0x14,%edx
+   0x08048533 <+120>:	je     0x804853a <main+127>
+   0x08048535 <+122>:	call   0x8048380 <__stack_chk_fail@plt>
+   0x0804853a <+127>:	mov    -0x4(%ebp),%ecx
+   0x0804853d <+130>:	leave  
+   0x0804853e <+131>:	lea    -0x4(%ecx),%esp
+   0x08048541 <+134>:	ret    
+End of assembler dump.

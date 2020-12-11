@@ -1,0 +1,8 @@
+1. factorial code in c made.
+2. compiled it using gcc -g filename.c, a.out file generated.
+3. used gdb a.out in terminal.
+
+4. then wrote 
+1)b main, gives breakpoint at line, 
+2)run, shows breakpoint and stops, 
+3)disass, gives dump of assembler code for function main.
